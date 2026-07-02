@@ -1,8 +1,8 @@
 local map = vim.keymap.set
 
 -- Buffer navigation
-map("n", "<tab>", ":bnext<cr>", { desc = "Next Buffer" })
-map("n", "<S-tab>", ":bprev<cr>", { desc = "Prev Buffer" })
+map("n", "<tab>", "<cmd>bnext<cr>", { desc = "Next Buffer" })
+map("n", "<S-tab>", "<cmd>bprev<cr>", { desc = "Prev Buffer" })
 
 -- Close buffer without closing the split
 map("n", "<leader>bd", function()
@@ -37,8 +37,11 @@ map("i", "ķ", "<C-d>", { desc = "Unindent" })
 map("x", "•", ">gv", { desc = "Indent" })
 map("x", "ķ", "<gv", { desc = "Unindent" })
 
--- Paste over selection without clobbering yank register
-map("x", "<leader>p", '"_dP', { desc = "Paste (no yank)" })
+-- Remap 'ű' to act as backtick (jump to exact mark position)
+map({ "n", "v", "o" }, "ű", "`", { desc = "Jump to mark (exact line & col)" })
+
+-- Vertical window split
+map("n", "<leader>í", "<cmd>vsplit<cr>", { desc = "Vertical Split" })
 
 -- Search stays centered
 map("n", "n", "nzzzv")
@@ -47,56 +50,8 @@ map("n", "N", "Nzzzv")
 -- Remap '4' to go to the end of the line (replacing '$')
 map({ "n", "v", "o" }, "4", "$", { desc = "Go to end of line / operator motion" })
 
-local term_buf = nil
-
-map("n", "<leader>tt", function()
-    -- Step 1: If the terminal buffer exists and is currently visible, hide it
-    if term_buf and vim.api.nvim_buf_is_valid(term_buf) then
-        local term_win = vim.fn.bufwinid(term_buf)
-        if term_win ~= -1 then
-            vim.api.nvim_win_close(term_win, false)
-            return
-        end
-    end
-
-    -- Step 2: Open a clean window split at the bottom
-    vim.cmd("botright split | resize 15")
-    local new_win = vim.api.nvim_get_current_win()
-
-    -- Step 3: If the background terminal buffer is still alive, reload it here
-    if term_buf and vim.api.nvim_buf_is_valid(term_buf) then
-        vim.cmd("buffer " .. term_buf)
-    else
-        -- Step 4: Otherwise, create a fresh terminal and capture its unique ID
-        vim.cmd("terminal")
-        term_buf = vim.api.nvim_get_current_buf()
-
-        -- Look for the .venv activation script right in your project root
-        local activate_script = vim.fn.getcwd() .. "/.venv/bin/activate"
-        if vim.fn.filereadable(activate_script) == 1 then
-            local job_id = vim.b.terminal_job_id
-            if job_id then
-                -- Wait 50ms for the terminal process to wire up, then run it
-                vim.defer_fn(function()
-                    --    vim.fn.chansend(job_id, "source .venv/bin/activate\n")
-                end, 50)
-            end
-        end
-    end
-
-    -- Step 5: Force Neovim to focus on this window and drop into insert mode
-    vim.api.nvim_set_current_win(new_win)
-    vim.cmd("startinsert")
-end, { desc = "Toggle Terminal & Auto-Activate Root .venv" })
-
-map("t", "<leader>tt", function()
-    local current_buf = vim.api.nvim_get_current_buf()
-    local term_win = vim.fn.bufwinid(current_buf)
-    if term_win ~= -1 then
-        vim.cmd("stopinsert")
-        vim.api.nvim_win_close(term_win, false)
-    end
-end, { desc = "Hide Terminal From Inside Insert Mode" })
+-- Escape terminal mode using your Karabiner Esc tap
+map("t", "<Esc>", [[<C-\><C-n>]], { desc = "Exit Terminal Mode" })
 
 -- Disable arrow keys
 for _, mode in ipairs({ "n", "i", "v", "x" }) do
