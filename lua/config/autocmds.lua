@@ -24,3 +24,17 @@ vim.api.nvim_create_autocmd("User", {
         end
     end,
 })
+
+vim.api.nvim_create_autocmd("TermOpen", {
+    callback = function()
+        if not vim.g._autosource_venv_pending then
+            return
+        end
+        vim.g._autosource_venv_pending = false
+
+        local venv = vim.fn.getcwd() .. "/.venv/bin/activate"
+        if vim.uv.fs_stat(venv) then
+            vim.api.nvim_chan_send(vim.b.terminal_job_id, "source .venv/bin/activate\n")
+        end
+    end,
+})

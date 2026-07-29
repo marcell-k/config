@@ -2,6 +2,12 @@ return {
     {
         "saghen/blink.cmp",
         opts = {
+            keymap = {
+                preset = "default",
+                ["<C-j>"] = { "select_next", "fallback" },
+                ["<C-k>"] = { "select_prev", "fallback" },
+                ["<CR>"] = { "accept", "fallback" },
+            },
             signature = { enabled = false },
             completion = {
                 accept = { auto_brackets = { enabled = false } }, -- let transform handle it

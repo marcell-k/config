@@ -1,14 +1,20 @@
 local map = vim.keymap.set
 
 -- Buffer navigation
-map("n", "<tab>", "<cmd>bnext<cr>", { desc = "Next Buffer" })
-map("n", "<S-tab>", "<cmd>bprev<cr>", { desc = "Prev Buffer" })
+map("n", "<C-n>", "<cmd>bnext<cr>", { desc = "Next Buffer" })
+map("n", "<C-b>", "<cmd>bprev<cr>", { desc = "Prev Buffer" })
 
 -- Close buffer without closing the split
 map("n", "<leader>bd", function()
     local buf = vim.api.nvim_get_current_buf()
     vim.cmd("bprev")
-    vim.api.nvim_buf_delete(buf, { force = false })
+    local ok = pcall(vim.api.nvim_buf_delete, buf, { force = false })
+    if not ok then
+        local choice = vim.fn.confirm("Buffer has unsaved changes. Force delete?", "&Yes\n&No", 2)
+        if choice == 1 then
+            vim.api.nvim_buf_delete(buf, { force = true })
+        end
+    end
 end, { desc = "Delete Buffer" })
 
 -- Page jump (centered)
@@ -50,8 +56,55 @@ map("n", "N", "Nzzzv")
 -- Remap '4' to go to the end of the line (replacing '$')
 map({ "n", "v", "o" }, "4", "$", { desc = "Go to end of line / operator motion" })
 
--- Escape terminal mode using your Karabiner Esc tap
-map("t", "<Esc>", [[<C-\><C-n>]], { desc = "Exit Terminal Mode" })
+--- Code Action ---
+map("n", "<leader>vca", function()
+    vim.lsp.buf.code_action()
+end)
+
+-- Insert semicolon with Ctrl+.
+map("i", "<C-.>", ";", { desc = "Insert Semicolon" })
+
+local term_buf = nil
+
+map("n", "<leader>tt", function()
+    -- Step 1: If the terminal buffer exists and is currently visible, hide it
+    if term_buf and vim.api.nvim_buf_is_valid(term_buf) then
+        local term_win = vim.fn.bufwinid(term_buf)
+        if term_win ~= -1 then
+            vim.api.nvim_win_close(term_win, false)
+            return
+        end
+    end
+
+    -- Step 2: Open a clean window split at the bottom
+    vim.cmd("botright split | resize 20")
+    local new_win = vim.api.nvim_get_current_win()
+
+    -- Step 3: If the background terminal buffer is still alive, reload it here
+    if term_buf and vim.api.nvim_buf_is_valid(term_buf) then
+        vim.cmd("buffer " .. term_buf)
+    else
+        -- Step 4: Otherwise, create a fresh terminal and capture its unique ID.
+        -- Flag this as "our" terminal so the TermOpen autocmd knows it's safe
+        -- to auto-source the venv (as opposed to e.g. a lazygit terminal).
+        vim.g._autosource_venv_pending = true
+        vim.cmd("terminal")
+        term_buf = vim.api.nvim_get_current_buf()
+    end
+
+    -- Step 5: Force Neovim to focus on this window and drop into insert mode
+    vim.api.nvim_set_current_win(new_win)
+    vim.cmd("startinsert")
+end, { desc = "Toggle Full-Height Terminal" })
+
+map("t", "<leader>tt", function()
+    local current_buf = vim.api.nvim_get_current_buf()
+    local term_win = vim.fn.bufwinid(current_buf)
+    if term_win ~= -1 then
+        vim.cmd("stopinsert")
+        vim.api.nvim_win_close(term_win, false)
+    end
+end, { desc = "Hide Terminal From Inside Insert Mode" })
 
 -- Disable arrow keys
 for _, mode in ipairs({ "n", "i", "v", "x" }) do
