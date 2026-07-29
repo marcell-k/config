@@ -9,6 +9,9 @@ return {
             ensure_installed = {
                 "basedpyright",
                 "gopls",
+                "rust_analyzer",
+                "taplo",
+                "clangd",
             },
         },
     },
