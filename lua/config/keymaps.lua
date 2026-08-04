@@ -44,7 +44,7 @@ map("x", "•", ">gv", { desc = "Indent" })
 map("x", "ķ", "<gv", { desc = "Unindent" })
 
 -- Remap 'ű' to act as backtick (jump to exact mark position)
-map({ "n", "v", "o" }, "ű", "`", { desc = "Jump to mark (exact line & col)" })
+map({ "n", "v", "o" }, "<leader>j", "`", { desc = "Jump to mark (exact line & col)" })
 
 -- Vertical window split
 map("n", "<leader>í", "<cmd>vsplit<cr>", { desc = "Vertical Split" })
@@ -57,7 +57,7 @@ map("n", "N", "Nzzzv")
 map({ "n", "v", "o" }, "4", "$", { desc = "Go to end of line / operator motion" })
 
 --- Code Action ---
-map("n", "<leader>vca", function()
+map({ "n", "v" }, "<leader>vca", function()
     vim.lsp.buf.code_action()
 end)
 
