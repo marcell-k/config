@@ -43,7 +43,15 @@ map("i", "ķ", "<C-d>", { desc = "Unindent" })
 map("x", "•", ">gv", { desc = "Indent" })
 map("x", "ķ", "<gv", { desc = "Unindent" })
 
--- Remap 'ű' to act as backtick (jump to exact mark position)
+-- Reamp <> to super + Y/X
+map("i", "<cmd>y", "<")
+map("i", "<cmd>x", ">")
+
+-- Rust symbol remaps
+map("i", "-", ";", { desc = "Insert ; (was -)" })
+map("i", "<S-.>", "-", { desc = "Insert - (was Shift+.)" })
+
+-- Jump to exact mark position
 map({ "n", "v", "o" }, "<leader>j", "`", { desc = "Jump to mark (exact line & col)" })
 
 -- Vertical window split
@@ -60,6 +68,9 @@ map({ "n", "v", "o" }, "4", "$", { desc = "Go to end of line / operator motion" 
 map({ "n", "v" }, "<leader>vca", function()
     vim.lsp.buf.code_action()
 end)
+
+-- Show diagnostic float ---
+map("n", "<leader>vd", vim.diagnostic.open_float, { desc = "Show Diagnostic" })
 
 -- Insert semicolon with Ctrl+.
 map("i", "<C-.>", ";", { desc = "Insert Semicolon" })
