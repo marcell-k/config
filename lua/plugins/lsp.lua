@@ -47,6 +47,18 @@ return {
                     end,
                 },
                 gopls = {},
+                taplo = {
+                    settings = {
+                        evenBetterToml = {
+                            fmt = {
+                                columnWidth = 120,
+                                arrayAutoCollapse = true,
+                                arrayAutoExpand = true,
+                                arrayTrailingComma = false,
+                            },
+                        },
+                    },
+                },
                 rust_analyzer = {
                     settings = {
                         ["rust-analyzer"] = {
