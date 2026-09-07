@@ -1,8 +1,8 @@
 return {
-    "nvim-mini/mini.pairs",
-    opts = {
-        mappings = {
-            ["'"] = false,
-        },
-    },
+	"nvim-mini/mini.pairs",
+	opts = {
+		mappings = {
+			["'"] = false,
+		},
+	},
 }
