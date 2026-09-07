@@ -43,10 +43,6 @@ map("i", "ķ", "<C-d>", { desc = "Unindent" })
 map("x", "•", ">gv", { desc = "Indent" })
 map("x", "ķ", "<gv", { desc = "Unindent" })
 
--- Reamp <> to super + Y/X
-map("i", "<cmd>y", "<")
-map("i", "<cmd>x", ">")
-
 -- Jump to exact mark position
 map({ "n", "v", "o" }, "<leader>j", "`", { desc = "Jump to mark (exact line & col)" })
 
