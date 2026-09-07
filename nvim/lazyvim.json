@@ -1,6 +1,5 @@
 {
   "extras": [
-    "lazyvim.plugins.extras.editor.harpoon2",
     "lazyvim.plugins.extras.lang.markdown"
   ],
   "install_version": 8,
