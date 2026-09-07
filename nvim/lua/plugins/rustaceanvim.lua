@@ -1,17 +1,37 @@
 return {
-	"mrcjkb/rustaceanvim",
-	version = "^9",
-	lazy = false, -- rustaceanvim handles its own lazy-loading on rust filetypes
-	ft = { "rust" },
-	init = function()
-		vim.g.rustaceanvim = {
-			server = {
-				settings = {
-					["rust-analyzer"] = {
-						check = { command = "clippy" },
+	{
+		"mrcjkb/rustaceanvim",
+		lazy = true,
+		version = "^9",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"mfussenegger/nvim-dap",
+		},
+		ft = { "rust" },
+		config = function()
+			vim.g.rustaceanvim = {
+				-- Plugin configuration
+				tools = {},
+				-- LSP configuration
+				server = {
+					on_attach = function(client, bufnr)
+						local success, _ = pcall(vim.lsp.inlay_hint.enable, true)
+						if not success then
+							vim.lsp.inlay_hint.enable(0, true)
+						end
+					end,
+					default_settings = {
+						-- rust-analyzer language server configuration
+						["rust-analyzer"] = {
+							cargo = {
+								features = "all",
+							},
+						},
 					},
 				},
-			},
-		}
-	end,
+				-- DAP configuration
+				dap = {},
+			}
+		end,
+	},
 }
