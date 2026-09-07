@@ -54,7 +54,7 @@ map("n", "N", "Nzzzv")
 map({ "n", "v", "o" }, "4", "$", { desc = "Go to end of line / operator motion" })
 
 --- Code Action ---
-map({ "n", "v" }, "<leader>vca", function()
+map({ "n", "v" }, "<leader>ca", function()
 	vim.lsp.buf.code_action()
 end)
 
