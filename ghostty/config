@@ -1,0 +1,54 @@
+# --- Splits & Navigation (Titlebar Hidden Setup) ---
+macos-titlebar-style = hidden
+
+keybind = super+t=new_split:right
+keybind = super+d=close_surface
+
+# Focus navigation
+keybind = super+ctrl+l=goto_split:previous
+keybind = super+ctrl+h=goto_split:next
+
+# Fullscreen simulation: Press Cmd+Z to toggle maximizing the active split
+# so it fills the entire window buffer, exactly like a tab.
+keybind = super+z=toggle_split_zoom
+
+# --- Typography Settings ---
+font-family = "JetBrainsMono Nerd Font"
+font-size = 13
+
+# --- Mac / Option Key Behavior ---
+macos-option-as-alt = false
+
+# Free up Ctrl+P and Ctrl+N for shell history navigation
+keybind = ctrl+p=unbind
+keybind = ctrl+n=unbind
+
+# --- Window Look & Feel ---
+background-opacity = 1
+unfocused-split-opacity = 1
+unfocused-split-fill = #181616
+
+# --- Kanagawa Dragon Color Palette overrides ---
+# This forces the exact colors from your Neovim canvas
+palette = 0=#181616
+palette = 1=#c4746e
+palette = 2=#8a9a7b
+palette = 3=#c4b28a
+palette = 4=#8ba4b0
+palette = 5=#a292a3
+palette = 6=#8ea4a2
+palette = 7=#c8c093
+palette = 8=#a6a69c
+palette = 9=#e46876
+palette = 10=#87a987
+palette = 11=#e6c384
+palette = 12=#7fb4ca
+palette = 13=#938aa9
+palette = 14=#7aa89f
+palette = 15=#c5c9c5
+
+background = #181616
+foreground = #c5c9c5
+cursor-color = c8c093
+selection-background = #2d4f67
+selection-foreground = #c8c093

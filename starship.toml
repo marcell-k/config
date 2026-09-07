@@ -1,0 +1,39 @@
+palette = "kanagawa_dragon"
+
+[palettes.kanagawa_dragon]
+black = "#0d0c0c"
+red = "#c4746e"
+green = "#8a9a7b"
+yellow = "#c4b28a"
+blue = "#8ba4b0"
+magenta = "#a292a3"
+cyan = "#8ea4a2"
+gray = "#a6a69c"
+br_red = "#e46876"
+br_green = "#87a987"
+br_yellow = "#e6c384"
+br_blue = "#7fb4ca"
+br_magenta = "#938aa9"
+br_cyan = "#7aa89f"
+white = "#c5c9c5"
+
+[character]
+success_symbol = "[➜](br_green)"
+error_symbol = "[➜](br_red)"
+
+[directory]
+style = "br_blue"
+
+[git_branch]
+symbol = "⎇ "
+style = "br_yellow"
+format = "[$symbol$branch]($style) "
+
+[git_status]
+style = "br_red"
+
+[package]
+disabled = true
+
+[rust]
+disabled = true

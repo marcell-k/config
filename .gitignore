@@ -1,4 +1,12 @@
 .DS_Store
 .lazy.nvtags
-lazy-lock.json # Optional: skip if you want exact plugin parity across devices
 colors/
+nexus_cli/
+
+# --- Karabiner ---
+Karabiner/automatic_backups/
+*.backup_*
+*.json.backup_*
+
+# --- Zellij ---
+*.kdl.bak
