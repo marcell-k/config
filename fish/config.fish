@@ -37,7 +37,7 @@ function jj
 end
 alias zz "zellij --layout ~/.config/zellij/layouts/layout.kdl"
 
-alias n nvim
+alias cat bat
 
 fzf --fish | source
 

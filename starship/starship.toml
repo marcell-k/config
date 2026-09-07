@@ -20,9 +20,11 @@ white = "#c5c9c5"
 [character]
 success_symbol = "[➜](br_green)"
 error_symbol = "[➜](br_red)"
+vicmd_symbol = "[❮](br_magenta)"
 
 [directory]
 style = "br_blue"
+read_only_style = "br_red"
 
 [git_branch]
 symbol = "⎇ "
@@ -32,8 +34,17 @@ format = "[$symbol$branch]($style) "
 [git_status]
 style = "br_red"
 
+[cmd_duration]
+min_time = 2000
+style = "br_yellow"
+format = "[  $duration]($style) "
+
+# --- Disable ---
 [package]
 disabled = true
 
 [rust]
+disabled = true
+
+[python]
 disabled = true
