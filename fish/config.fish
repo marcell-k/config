@@ -38,6 +38,7 @@ end
 alias zz "zellij --layout ~/.config/zellij/layouts/layout.kdl"
 
 alias cat bat
+alias cd z
 
 fzf --fish | source
 

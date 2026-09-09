@@ -20,7 +20,7 @@ white = "#c5c9c5"
 [character]
 success_symbol = "[➜](br_green)"
 error_symbol = "[➜](br_red)"
-vicmd_symbol = "[❮](br_magenta)"
+vicmd_symbol = "[Ѧ](br_magenta)"
 
 [directory]
 style = "br_blue"
