@@ -1,17 +1,6 @@
 # --- Splits & Navigation (Titlebar Hidden Setup) ---
 macos-titlebar-style = hidden
 
-keybind = super+t=new_split:right
-keybind = super+d=close_surface
-
-# Focus navigation
-keybind = super+ctrl+l=goto_split:previous
-keybind = super+ctrl+h=goto_split:next
-
-# Fullscreen simulation: Press Cmd+Z to toggle maximizing the active split
-# so it fills the entire window buffer, exactly like a tab.
-keybind = super+z=toggle_split_zoom
-
 # --- Typography Settings ---
 font-family = "JetBrainsMono Nerd Font"
 font-size = 13
@@ -19,9 +8,6 @@ font-size = 13
 # --- Mac / Option Key Behavior ---
 macos-option-as-alt = false
 
-# Free up Ctrl+P and Ctrl+N for shell history navigation
-keybind = ctrl+p=unbind
-keybind = ctrl+n=unbind
 
 # --- Window Look & Feel ---
 background-opacity = 1

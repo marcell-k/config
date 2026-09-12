@@ -4,6 +4,9 @@ return {
 	event = "VeryLazy",
 	opts = {
 		signs = false,
+		keywords = {
+			SAFETY = { color = "safety" },
+		},
 		highlight = {
 			multiline = true,
 			before = "",
@@ -11,25 +14,27 @@ return {
 			pattern = [[.*<(KEYWORDS)\s*:]],
 		},
 		colors = {
-			error = { "#ff7e64" }, -- FIX
-			warning = { "#ff5d62" }, -- WARN
-			info = { "#7fb4ca" }, -- NOTE
-			hint = { "#e6c384" }, -- PERF/HINT
-			default = { "#ffa066" }, -- TODO
-			test = { "#87a987" }, -- TEST
+			error = { "#e46876" }, -- FIX (red)
+			warning = { "#c4746e" }, -- WARN (muted red)
+			info = { "#7fb4ca" }, -- NOTE (blue)
+			hint = { "#7aa89f" }, -- HINT/PERF (cyan)
+			default = { "#e6c384" }, -- TODO (yellow)
+			test = { "#87a987" }, -- TEST (green)
+			safety = { "#938aa9" }, -- SAFETY (magenta)
 		},
 	},
 	config = function(_, opts)
 		require("todo-comments").setup(opts)
 
 		local fg_colors = {
-			FIX = "#ff7e64",
-			WARN = "#ff5d62",
-			NOTE = "#ffa066",
-			HINT = "#e6c384",
-			PERF = "#e6c384",
-			TODO = "#7fb4ca",
+			FIX = "#e46876",
+			WARN = "#c4746e",
+			NOTE = "#7fb4ca",
+			HINT = "#7aa89f",
+			PERF = "#7aa89f",
+			TODO = "#e6c384",
 			TEST = "#87a987",
+			SAFETY = "#938aa9",
 		}
 
 		local function apply_todo_highlights()
