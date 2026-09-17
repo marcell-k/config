@@ -1,0 +1,131 @@
+# ~/.config/aerospace/aerospace.toml
+# AeroSpace tiling window manager config
+# Keybind style matches hjkl conventions used across nvim/zellij configs
+#
+# Usual workflow this is tuned for:
+#   workspace 1 -> browser (single window)
+#   workspace 2 -> Ghostty (single window)
+#   workspace 3 -> flexible (browser / Finder / anything else)
+
+# Config schema version. See: https://nikitabobko.github.io/AeroSpace/guide#config-version
+config-version = 2
+
+# Start AeroSpace at login
+start-at-login = true
+
+# Normalizations AeroSpace does under the hood — leave these on
+enable-normalization-flatten-containers = true
+enable-normalization-opposite-orientation-for-nested-containers = true
+
+# Gaps between windows/monitor edges (in pixels) — tweak to taste
+[gaps]
+inner.horizontal = 5
+inner.vertical = 5
+outer.left = 5
+outer.bottom = 5
+outer.top = 5
+outer.right = 5
+
+# Default layout when a new window opens
+[mode.main.binding]
+
+# --- Focus windows (hjkl, matches nvim/zellij <C-hjkl>) ---
+alt-h = 'focus left'
+alt-j = 'focus down'
+alt-k = 'focus up'
+alt-l = 'focus right'
+
+# --- Move windows (Shift+hjkl) ---
+alt-shift-h = 'move left'
+alt-shift-j = 'move down'
+alt-shift-k = 'move up'
+alt-shift-l = 'move right'
+
+# --- Resize windows ---
+alt-minus = 'resize smart -50'
+alt-equal = 'resize smart +50'
+
+# --- Layout switching ---
+alt-slash = 'layout tiles horizontal vertical'
+alt-comma = 'layout accordion horizontal vertical'
+
+# --- Toggle floating / fullscreen ---
+alt-shift-space = 'layout floating tiling'
+alt-f = 'fullscreen'
+
+# --- Workspaces (1-9, matches zellij tab numbers) ---
+ctrl-alt-1 = 'workspace 1'
+ctrl-alt-2 = 'workspace 2'
+ctrl-alt-3 = 'workspace 3'
+
+# --- Move window to workspace ---
+alt-shift-1 = 'move-node-to-workspace 1'
+alt-shift-2 = 'move-node-to-workspace 2'
+alt-shift-3 = 'move-node-to-workspace 3'
+
+# --- Reload config ---
+alt-shift-r = 'reload-config'
+
+# --- Enter service mode (like zellij's "locked"/session modes) for
+#     less-common actions, so alt-hjkl stays reserved for focus/move ---
+alt-shift-semicolon = 'mode service'
+
+[mode.service.binding]
+esc = ['reload-config', 'mode main']
+r = ['flatten-workspace-tree', 'mode main']                # reset layout tree
+f = ['layout floating tiling', 'mode main']
+backspace = ['close-all-windows-but-current', 'mode main']
+
+# --- Per-app rules ---
+# Finder floats by default (file dialogs tile awkwardly otherwise)
+[[on-window-detected]]
+if.app-id = 'com.apple.finder'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.MobileSMS' # Messages
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.Music'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.mail'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'net.whatsapp.WhatsApp'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.Notes'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.iBooksX'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.reminders'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.iCal'
+run = 'layout floating'
+
+# Ghostty always opens tiled on workspace 2 (your primary terminal desktop)
+# NOTE: no 'fullscreen' action here on purpose — a single tiled window in an
+# otherwise-empty workspace already fills the screen. Native 'fullscreen'
+# hides the menu bar and moves to its own Space, which isn't what we want.
+[[on-window-detected]]
+if.app-id = 'com.mitchellh.ghostty'
+run = ['layout tiling', 'move-node-to-workspace 2']
+
+# Safari -> workspace 1 (your primary browser desktop)
+[[on-window-detected]]
+if.app-id = 'com.apple.Safari'
+run = ['layout tiling', 'move-node-to-workspace 1']
+
+# Workspace 3 is intentionally left unassigned/flexible — nothing auto-routes
+# there; move things over manually with alt-shift-3 as needed.
