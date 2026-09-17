@@ -1,3 +1,4 @@
+format = "$directory$git_branch$git_status$character"
 palette = "kanagawa_dragon"
 
 [palettes.kanagawa_dragon]
@@ -20,7 +21,7 @@ white = "#c5c9c5"
 [character]
 success_symbol = "[➜](br_green)"
 error_symbol = "[➜](br_red)"
-vicmd_symbol = "[➜](br_magenta)"
+vicmd_symbol = "[➜](br_yellow)"
 
 [directory]
 style = "br_blue"
@@ -33,6 +34,7 @@ format = "[$symbol$branch]($style) "
 
 [git_status]
 style = "br_red"
+disabled = true
 
 [cmd_duration]
 min_time = 2000
