@@ -70,3 +70,13 @@ for _, mode in ipairs({ "n", "i", "v", "x" }) do
 		map(mode, arrow, "<Nop>", { desc = "Disabled - Use hjkl!" })
 	end
 end
+
+--- Section divider ---
+map("n", "<leader>cd", function()
+	local title = vim.fn.input("Divider title: ")
+	local prefix = (vim.bo.commentstring:match("^(.-)%%s") or "// "):gsub("%s*$", "") .. " "
+	local width = vim.bo.textwidth > 0 and vim.bo.textwidth or 100
+	local line = prefix .. "----- " .. title .. " "
+	line = line .. string.rep("-", math.max(0, width - #line))
+	vim.api.nvim_put({ line }, "l", true, true)
+end, { desc = "Insert Section Divider" })

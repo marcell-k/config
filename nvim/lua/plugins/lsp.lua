@@ -51,7 +51,7 @@ return {
 					settings = {
 						evenBetterToml = {
 							fmt = {
-								columnWidth = 120,
+								columnWidth = 100,
 								arrayAutoCollapse = true,
 								arrayAutoExpand = true,
 								arrayTrailingComma = false,

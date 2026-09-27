@@ -10,6 +10,10 @@ vim.opt.autoindent = true
 vim.opt.smartindent = true
 vim.opt.wrap = true
 
+vim.opt.textwidth = 100
+vim.opt.colorcolumn = ""
+vim.opt.formatoptions:append("cq")
+
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
 
