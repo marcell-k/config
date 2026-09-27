@@ -1,6 +1,7 @@
 return {
 	{
 		"nvim-lualine/lualine.nvim",
+		enabled = false,
 		config = function()
 			local lualine = require("lualine")
 			local theme = require("kanagawa.colors").setup().theme

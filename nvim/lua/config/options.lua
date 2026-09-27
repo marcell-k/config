@@ -33,3 +33,6 @@ vim.opt.undofile = true
 vim.opt.splitright = true -- vsplit opens to the right (natural)
 vim.opt.splitbelow = true -- split opens below (natural)
 vim.opt.cursorline = true -- highlight current line (pairs well with kanagawa-dragon)
+
+--- when enable luline remove this line
+vim.opt.laststatus = 0
