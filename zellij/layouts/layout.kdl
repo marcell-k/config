@@ -11,7 +11,7 @@ layout {
     tab name="terminal" {
         pane
     }
-    tab name="jj" {
+    tab name="journal" {
         pane cwd="/Users/marci/Projects/journal" command="./journal" {
             args "tui"
         }

@@ -107,7 +107,11 @@ run = 'layout floating'
 
 [[on-window-detected]]
 if.app-id = 'com.microsoft.VSCode'
-run = ['layout floating', 'move-node-to-workspace 2']
+run = ['layout floating']
+
+[[on-window-detected]]
+if.app-id = 'com.apple.Siri'
+run = 'layout floating'
 
 # Ghostty always opens tiled on workspace 2 (your primary terminal desktop)
 # NOTE: no 'fullscreen' action here on purpose — a single tiled window in an
@@ -121,6 +125,10 @@ run = ['layout tiling', 'move-node-to-workspace 2']
 [[on-window-detected]]
 if.app-id = 'com.apple.Safari'
 run = ['layout tiling', 'move-node-to-workspace 1']
+
+[[on-window-detected]]
+if.app-id = 'org.mozilla.firefox'
+run = ['layout tiling', 'move-node-to-workspace 3']
 
 [[on-window-detected]]
 if.app-id = 'md.obsidian'
