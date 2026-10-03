@@ -72,7 +72,7 @@ for _, mode in ipairs({ "n", "i", "v", "x" }) do
 end
 
 --- Section divider ---
-map("n", "<leader>cd", function()
+map("n", "<leader>cs", function()
 	local title = vim.fn.input("Divider title: ")
 	local prefix = (vim.bo.commentstring:match("^(.-)%%s") or "// "):gsub("%s*$", "") .. " "
 	local width = vim.bo.textwidth > 0 and vim.bo.textwidth or 100
@@ -80,3 +80,13 @@ map("n", "<leader>cd", function()
 	line = line .. string.rep("-", math.max(0, width - #line))
 	vim.api.nvim_put({ line }, "l", true, true)
 end, { desc = "Insert Section Divider" })
+
+--- One-line Python docstring: """|.""" ---
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "python",
+	callback = function(ev)
+		map("n", "<leader>cp", function()
+			vim.api.nvim_feedkeys(vim.keycode('o"""."""<Esc>hhhi'), "n", false)
+		end, { buffer = ev.buf, desc = "Python one-line docstring" })
+	end,
+})
