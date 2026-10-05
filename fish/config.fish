@@ -21,7 +21,6 @@ alias zshrcrr "source ~/.config/fish/config.fish"
 
 alias sv "source .venv/bin/activate.fish"
 alias py python3
-alias ub "uv run basedpyright"
 alias rc "uv run ruff check"
 
 alias cr "cargo run"

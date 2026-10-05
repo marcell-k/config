@@ -19,8 +19,8 @@ return {
 						event = "lsp",
 						kind = "progress",
 						any = {
-							{ find = "basedpyright" },
 							{ find = "pyright" },
+							{ find = "pyrefly" },
 						},
 					},
 					opts = { skip = true },
