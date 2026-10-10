@@ -3,7 +3,8 @@ set fish_greeting
 
 # custom ls
 alias ls eza
-set -gx EZA_COLORS "di=38;2;127;180;202:fi=38;2;197;201;197:ln=38;2;147;138;169:ex=38;2;135;169;135:*.md=38;2;230;195;132:*.json=38;2;230;195;132"
+set -gx LS_COLORS "di=38;2;127;180;202:fi=38;2;197;201;197:ln=38;2;147;138;169:ex=38;2;135;169;135:*.md=38;2;230;195;132:*.json=38;2;230;195;132:*.py=38;2;135;169;135:*.rs=38;2;196;116;110:*.toml=38;2;230;195;132"
+set -gx EZA_COLORS $LS_COLORS
 
 uv generate-shell-completion fish | source
 
