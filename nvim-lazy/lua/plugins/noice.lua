@@ -10,7 +10,7 @@ return {
 						trigger = true,
 						throttle = 50,
 					},
-					opts = { size = { max_height = 3 } },
+					opts = { size = { max_height = 8 } },
 				},
 			},
 			routes = {
