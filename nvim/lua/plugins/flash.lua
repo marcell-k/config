@@ -1,16 +1,15 @@
 return {
-	{
-		"folke/flash.nvim",
-		keys = {
-			-- Remove "o" from mode so "ys" works for nvim-surround
-			{
-				"s",
-				mode = { "n", "x" },
-				function()
-					require("flash").jump()
-				end,
-				desc = "Flash",
-			},
+	"folke/flash.nvim",
+	keys = {
+		{ "s", mode = { "n", "x", "o" }, false }, -- drop LazyVim's mapping
+		{ "S", mode = { "n", "x", "o" }, false }, -- frees visual S for surround
+		{
+			"s",
+			mode = { "n", "x" },
+			function()
+				require("flash").jump()
+			end,
+			desc = "Flash",
 		},
 	},
 }

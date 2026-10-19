@@ -10,18 +10,11 @@ return {
 		ft = { "rust" },
 		config = function()
 			vim.g.rustaceanvim = {
-				-- Plugin configuration
-				tools = {},
-				-- LSP configuration
 				server = {
-					on_attach = function(client, bufnr)
-						local success, _ = pcall(vim.lsp.inlay_hint.enable, true)
-						if not success then
-							vim.lsp.inlay_hint.enable(0, true)
-						end
+					on_attach = function()
+						vim.lsp.inlay_hint.enable(true)
 					end,
 					default_settings = {
-						-- rust-analyzer language server configuration
 						["rust-analyzer"] = {
 							cargo = {
 								features = "all",
@@ -29,8 +22,6 @@ return {
 						},
 					},
 				},
-				-- DAP configuration
-				dap = {},
 			}
 		end,
 	},

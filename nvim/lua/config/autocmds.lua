@@ -1,10 +1,3 @@
-vim.diagnostic.config({
-	virtual_text = false, -- Hide inline error messages
-	signs = false, -- Hide gutter signs
-	underline = true,
-	update_in_insert = false,
-})
-
 -- Strip inactive overloads from signature help — only show the active one
 vim.api.nvim_create_autocmd("User", {
 	pattern = "VeryLazy",

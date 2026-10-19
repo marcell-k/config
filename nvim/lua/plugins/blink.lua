@@ -1,9 +1,10 @@
+local K = vim.lsp.protocol.CompletionItemKind
+local callable = { [K.Method] = true, [K.Function] = true, [K.Constructor] = true, [K.Class] = true }
 return {
 	{
 		"saghen/blink.cmp",
 		opts = {
 			keymap = {
-				preset = "default",
 				["<C-j>"] = { "select_next", "fallback" },
 				["<C-k>"] = { "select_prev", "fallback" },
 				["<CR>"] = { "accept", "fallback" },
@@ -17,16 +18,11 @@ return {
 			},
 			sources = {
 				transform_items = function(_, items)
-					-- Kinds: 2=Method 3=Function 4=Constructor 7=Class
-					local callable = { [2] = true, [3] = true, [4] = true, [7] = true }
 					for _, item in ipairs(items) do
-						if callable[item.kind] then
-							local label = item.label or ""
-							-- skip if already has parens
-							if not label:find("%(") then
-								item.insertTextFormat = 2 -- snippet
-								item.insertText = label .. "($1)"
-							end
+						local label = item.label or ""
+						if callable[item.kind] and not label:find("(", 1, true) then
+							item.insertTextFormat = 2 -- snippet
+							item.insertText = label .. "($1)"
 						end
 					end
 					return items

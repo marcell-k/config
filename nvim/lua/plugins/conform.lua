@@ -7,9 +7,8 @@ return {
 				go = { "goimports", "gofmt" },
 				rust = { "rustfmt" },
 				toml = { "taplo" },
-				c = { "clang-format" },
+				-- c = { "clang-format" },
 			},
-			formatters = {},
 		},
 	},
 }

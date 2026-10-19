@@ -1,3 +1,25 @@
+local palette = {
+	error = "#e46876", -- FIX
+	warning = "#c4746e", -- WARN
+	info = "#7fb4ca", -- NOTE
+	hint = "#7aa89f", -- HINT/PERF
+	default = "#e6c384", -- TODO
+	test = "#87a987", -- TEST
+	safety = "#938aa9", -- SAFETY
+}
+
+-- keyword -> palette key
+local keyword_color = {
+	FIX = "error",
+	WARN = "warning",
+	NOTE = "info",
+	HINT = "hint",
+	PERF = "hint",
+	TODO = "default",
+	TEST = "test",
+	SAFETY = "safety",
+}
+
 return {
 	"folke/todo-comments.nvim",
 	dependencies = { "nvim-lua/plenary.nvim" },
@@ -13,41 +35,27 @@ return {
 			keyword = "fg",
 			pattern = [[.*<(KEYWORDS)\s*:]],
 		},
-		colors = {
-			error = { "#e46876" }, -- FIX (red)
-			warning = { "#c4746e" }, -- WARN (muted red)
-			info = { "#7fb4ca" }, -- NOTE (blue)
-			hint = { "#7aa89f" }, -- HINT/PERF (cyan)
-			default = { "#e6c384" }, -- TODO (yellow)
-			test = { "#87a987" }, -- TEST (green)
-			safety = { "#938aa9" }, -- SAFETY (magenta)
-		},
+		colors = vim.tbl_map(function(c)
+			return { c }
+		end, palette),
 	},
 	config = function(_, opts)
 		require("todo-comments").setup(opts)
 
-		local fg_colors = {
-			FIX = "#e46876",
-			WARN = "#c4746e",
-			NOTE = "#7fb4ca",
-			HINT = "#7aa89f",
-			PERF = "#7aa89f",
-			TODO = "#e6c384",
-			TEST = "#87a987",
-			SAFETY = "#938aa9",
-		}
-
 		local function apply_todo_highlights()
-			for kw, color in pairs(fg_colors) do
-				vim.api.nvim_set_hl(0, "TodoFg" .. kw, { fg = color, bg = "none", bold = true })
-				vim.api.nvim_set_hl(0, "TodoBg" .. kw, { fg = color, bg = "none", bold = true })
+			local function hl(name, key)
+				vim.api.nvim_set_hl(0, name, { fg = palette[key], bg = "none", bold = true })
 			end
 
-			vim.api.nvim_set_hl(0, "@comment.error", { fg = fg_colors.FIX, bg = "none", bold = true })
-			vim.api.nvim_set_hl(0, "@comment.warning", { fg = fg_colors.WARN, bg = "none", bold = true })
-			vim.api.nvim_set_hl(0, "@comment.note", { fg = fg_colors.NOTE, bg = "none", bold = true })
-			vim.api.nvim_set_hl(0, "@comment.todo", { fg = fg_colors.TODO, bg = "none", bold = true })
-			vim.api.nvim_set_hl(0, "Todo", { fg = fg_colors.TODO, bg = "none", bold = true })
+			for kw, key in pairs(keyword_color) do
+				hl("TodoFg" .. kw, key)
+				hl("TodoBg" .. kw, key)
+			end
+			hl("@comment.error", "error")
+			hl("@comment.warning", "warning")
+			hl("@comment.note", "info")
+			hl("@comment.todo", "default")
+			hl("Todo", "default")
 		end
 
 		apply_todo_highlights()

@@ -21,12 +21,6 @@ end, { desc = "Delete Buffer" })
 map("n", "<C-d>", "<C-d>zz")
 map("n", "<C-u>", "<C-u>zz")
 
---- Window navigation ---
-map("n", "<C-h>", "<C-w>h", { desc = "Window Left" })
-map("n", "<C-j>", "<C-w>j", { desc = "Window Down" })
-map("n", "<C-k>", "<C-w>k", { desc = "Window Up" })
-map("n", "<C-l>", "<C-w>l", { desc = "Window Right" })
-
 --- Move lines (Option+j / Option+k) ---
 map("n", "∆", "<cmd>m .+1<cr>==", { desc = "Move Line Down" })
 map("i", "∆", "<esc><cmd>m .+1<cr>==gi", { desc = "Move Line Down" })
@@ -52,11 +46,6 @@ map("n", "N", "Nzzzv")
 
 --- Remap '4' to go to the end of the line (replacing '$') ---
 map({ "n", "v", "o" }, "4", "$", { desc = "Go to end of line / operator motion" })
-
---- Code Action ---
-map({ "n", "v" }, "<leader>ca", function()
-	vim.lsp.buf.code_action()
-end)
 
 --- Show diagnostic float ---
 map("n", "<leader>vd", vim.diagnostic.open_float, { desc = "Show Diagnostic" })

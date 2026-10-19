@@ -18,10 +18,7 @@ return {
 					filter = {
 						event = "lsp",
 						kind = "progress",
-						any = {
-							{ find = "pyright" },
-							{ find = "pyrefly" },
-						},
+						find = "pyrefly",
 					},
 					opts = { skip = true },
 				},

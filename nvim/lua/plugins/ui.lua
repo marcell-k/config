@@ -1,7 +1,9 @@
 return {
+	{ "folke/tokyonight.nvim", enabled = false },
+	{ "catppuccin/nvim", enabled = false },
+
 	{
 		"rebelot/kanagawa.nvim",
-		lazy = false,
 		priority = 1000,
 		opts = {
 			theme = "dragon", -- "wave", "dragon",
@@ -51,6 +53,9 @@ return {
 					DiagnosticVirtualTextInfo = makeDiagnosticColor(theme.diag.info),
 					DiagnosticVirtualTextWarn = makeDiagnosticColor(theme.diag.warning),
 					DiagnosticVirtualTextError = makeDiagnosticColor(theme.diag.error),
+
+					-- Rust `unsafe` (was a nvim_set_hl call in rust.lua, which the colorscheme could overwrite)
+					["@lsp.typemod.keyword.unsafe.rust"] = { fg = "#e46876", bold = true, italic = false },
 				}
 			end,
 		},
