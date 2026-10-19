@@ -41,6 +41,7 @@ return {
 					NormalDark = { fg = theme.ui.fg_dim, bg = theme.ui.bg_m3 },
 					LazyNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
 					MasonNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
+					CursorLine = { bg = require("kanagawa.lib.color")(theme.ui.bg_p2):blend(theme.ui.bg, 0.5):to_hex() },
 
 					-- 2. Popup Menu (cmp/blink)
 					Pmenu = { fg = theme.ui.shade0, bg = theme.ui.bg_p1 }, -- add `blend = vim.o.pumblend` to enable transparency

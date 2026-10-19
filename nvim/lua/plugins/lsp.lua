@@ -13,6 +13,7 @@ return {
 				basedpyright = { enabled = false },
 
 				pyrefly = {
+					enabled = false,
 					before_init = function(_, config)
 						local root = config.root_dir or vim.uv.cwd()
 						local candidate = root .. "/.venv/bin/python"
@@ -23,7 +24,8 @@ return {
 						})
 					end,
 				},
-
+				ty = {},
+				ruff = {},
 				gopls = {},
 				taplo = {
 					settings = {

@@ -27,7 +27,7 @@ require("lazy").setup({
 		enabled = false,
 	},
 	install = { colorscheme = { "kanagawa-dragon", "habamax" } },
-	checker = { enabled = true, notify = false },
+	checker = { enabled = false },
 	performance = {
 		rtp = {
 			disabled_plugins = {

@@ -5,7 +5,8 @@ return {
 			ensure_installed = {
 				-- "clangd",
 				"gopls",
-				"pyrefly",
+				-- "pyrefly",
+				"ty",
 				"ruff",
 				"taplo",
 			},

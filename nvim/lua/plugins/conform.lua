@@ -4,7 +4,7 @@ return {
 		opts = {
 			formatters_by_ft = {
 				python = { "ruff_organize_imports", "ruff_format" },
-				go = { "goimports", "gofmt" },
+				-- go = { "goimports", "gofmt" },
 				rust = { "rustfmt" },
 				toml = { "taplo" },
 				-- c = { "clang-format" },

@@ -13,16 +13,16 @@ return {
 					opts = { size = { max_height = 3 } },
 				},
 			},
-			routes = {
-				{
-					filter = {
-						event = "lsp",
-						kind = "progress",
-						find = "pyrefly",
-					},
-					opts = { skip = true },
-				},
-			},
+			-- routes = {
+			-- 	{
+			-- 		filter = {
+			-- 			event = "lsp",
+			-- 			kind = "progress",
+			-- 			find = "pyrefly",
+			-- 		},
+			-- 		opts = { skip = true },
+			-- 	},
+			-- },
 		},
 	},
 }

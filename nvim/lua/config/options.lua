@@ -5,14 +5,13 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.tabstop = 4 -- tab width
 vim.opt.shiftwidth = 4 -- indent wid
-vim.opt.expandtab = true
+vim.opt.expandtab = false
 vim.opt.autoindent = true
 vim.opt.smartindent = true
 vim.opt.wrap = true
 
 vim.opt.textwidth = 100
 vim.opt.colorcolumn = ""
-vim.opt.formatoptions:append("cq")
 
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
@@ -22,7 +21,6 @@ vim.opt.termguicolors = true
 vim.opt.scrolloff = 8
 vim.opt.sidescrolloff = 8
 vim.opt.signcolumn = "yes"
-vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 200
 

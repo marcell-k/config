@@ -17,10 +17,6 @@ map("n", "<leader>bd", function()
 	end
 end, { desc = "Delete Buffer" })
 
---- Page jump (centered) ---
-map("n", "<C-d>", "<C-d>zz")
-map("n", "<C-u>", "<C-u>zz")
-
 --- Move lines (Option+j / Option+k) ---
 map("n", "∆", "<cmd>m .+1<cr>==", { desc = "Move Line Down" })
 map("i", "∆", "<esc><cmd>m .+1<cr>==gi", { desc = "Move Line Down" })
@@ -59,16 +55,6 @@ for _, mode in ipairs({ "n", "i", "v", "x" }) do
 		map(mode, arrow, "<Nop>", { desc = "Disabled - Use hjkl!" })
 	end
 end
-
---- Section divider ---
-map("n", "<leader>cs", function()
-	local title = vim.fn.input("Divider title: ")
-	local prefix = (vim.bo.commentstring:match("^(.-)%%s") or "// "):gsub("%s*$", "") .. " "
-	local width = vim.bo.textwidth > 0 and vim.bo.textwidth or 100
-	local line = prefix .. "----- " .. title .. " "
-	line = line .. string.rep("-", math.max(0, width - #line))
-	vim.api.nvim_put({ line }, "l", true, true)
-end, { desc = "Insert Section Divider" })
 
 --- One-line Python docstring: """|.""" ---
 vim.api.nvim_create_autocmd("FileType", {

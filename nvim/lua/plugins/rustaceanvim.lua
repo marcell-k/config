@@ -1,13 +1,12 @@
 return {
 	{
 		"mrcjkb/rustaceanvim",
-		lazy = true,
 		version = "^9",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"mfussenegger/nvim-dap",
 		},
-		ft = { "rust" },
+		lazy = false,
 		config = function()
 			vim.g.rustaceanvim = {
 				server = {
