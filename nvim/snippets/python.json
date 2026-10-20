@@ -1,0 +1,21 @@
+{
+  "One-line docstring": {
+    "prefix": ["doc", "d1"],
+    "body": ["\u0022\u0022\u0022${1:Summary}.\u0022\u0022\u0022$0"],
+    "description": "One-line docstring"
+  },
+  "Multi-line docstring": {
+    "prefix": ["docm", "d3"],
+    "body": [
+      "\u0022\u0022\u0022${1:Summary}.",
+      "",
+      "Args:",
+      "    ${2:arg}: ${3:desc}",
+      "",
+      "Returns:",
+      "    ${4:desc}",
+      "\u0022\u0022\u0022$0"
+    ],
+    "description": "Multi-line docstring"
+  }
+}

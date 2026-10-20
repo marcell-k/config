@@ -4,8 +4,10 @@ return {
 		priority = 1000,
 		lazy = false,
 		opts = {
+			words = { enabled = true, modes = { "n", "c" } },
 			picker = { enabled = true },
 			lazygit = { enabled = true },
+			bigfile = { enabled = true },
 		},
 		-- stylua: ignore
 		keys = {
