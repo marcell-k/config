@@ -1,9 +1,7 @@
 return {
 	"saghen/blink.cmp",
-	dependencies = { "saghen/blink.lib", "rafamadriz/friendly-snippets" },
-	build = function()
-		require("blink.cmp").build():pwait()
-	end,
+	version = "1.*",
+	dependencies = { "rafamadriz/friendly-snippets" },
 	opts = {
 		keymap = {
 			preset = "enter",
@@ -15,7 +13,7 @@ return {
 		appearance = { nerd_font_variant = "mono" },
 
 		completion = {
-			accept = { auto_brackets = { enabled = false } },
+			accept = { auto_brackets = { enabled = true } },
 			menu = { draw = { treesitter = { "lsp" } } },
 			documentation = { auto_show = true, auto_show_delay_ms = 200 },
 			list = { selection = { preselect = true, auto_insert = false } },

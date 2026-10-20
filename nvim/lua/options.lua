@@ -8,6 +8,12 @@ vim.opt.expandtab = false
 vim.opt.autoindent = true
 vim.opt.smartindent = true
 vim.opt.wrap = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+vim.opt.linebreak = true
+vim.opt.breakindent = true
+vim.opt.inccommand = "split"
+vim.opt.confirm = true
 
 vim.opt.textwidth = 100
 vim.opt.colorcolumn = ""

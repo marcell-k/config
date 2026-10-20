@@ -37,7 +37,7 @@ map({ "n", "v", "o" }, "<leader>j", "`", { desc = "Jump to mark (exact line & co
 map({ "n", "v", "o" }, "4", "$", { desc = "Go to end of line / operator motion" })
 
 --- Show diagnostic float ---
-map("n", "<leader>vd", vim.diagnostic.open_float, { desc = "Show Diagnostic" })
+map("n", "<leader>cd", vim.diagnostic.open_float, { desc = "Show Diagnostic" })
 
 --- Insert semicolon with Ctrl+. ---
 map("i", "<C-.>", ";", { desc = "Insert Semicolon" })

@@ -5,7 +5,6 @@ return {
 		lazy = false,
 		opts = {
 			picker = { enabled = true },
-			words = { modes = { "n", "c" } },
 			lazygit = { enabled = true },
 		},
 		-- stylua: ignore
@@ -16,6 +15,7 @@ return {
 			{ "<leader>fg", function() Snacks.picker.git_files() end, desc = "Find Git Files" },
 			{ "<leader>fp", function() Snacks.picker.projects() end, desc = "Projects" },
 			{ "<leader>fr", function() Snacks.picker.recent() end, desc = "Recent" },
+			{ "<leader>,", function() Snacks.picker.buffers() end, desc = "Buffers" },
 
 			-- other
 			{ "<leader>bd", function() Snacks.bufdelete() end, desc = "Delete Buffer" },
