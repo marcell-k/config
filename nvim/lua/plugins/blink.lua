@@ -1,32 +1,47 @@
-local K = vim.lsp.protocol.CompletionItemKind
-local callable = { [K.Method] = true, [K.Function] = true, [K.Constructor] = true, [K.Class] = true }
 return {
-	{
-		"saghen/blink.cmp",
-		opts = {
+	"saghen/blink.cmp",
+	dependencies = { "saghen/blink.lib", "rafamadriz/friendly-snippets" },
+	build = function()
+		require("blink.cmp").build():pwait()
+	end,
+	opts = {
+		keymap = {
+			preset = "enter",
+			["<C-j>"] = { "select_next", "fallback" },
+			["<C-k>"] = { "select_prev", "fallback" },
+			["<C-y>"] = { "select_and_accept" },
+		},
+
+		appearance = { nerd_font_variant = "mono" },
+
+		completion = {
+			accept = { auto_brackets = { enabled = false } },
+			menu = { draw = { treesitter = { "lsp" } } },
+			documentation = { auto_show = true, auto_show_delay_ms = 200 },
+			list = { selection = { preselect = true, auto_insert = false } },
+		},
+
+		signature = { enabled = false },
+
+		sources = {
+			default = { "lsp", "path", "snippets", "buffer" },
+		},
+
+		cmdline = {
+			enabled = true,
 			keymap = {
-				["<C-j>"] = { "select_next", "fallback" },
-				["<C-k>"] = { "select_prev", "fallback" },
-				["<CR>"] = { "accept", "fallback" },
+				preset = "cmdline",
+				["<Right>"] = false,
+				["<Left>"] = false,
 			},
-			signature = { enabled = false },
 			completion = {
-				accept = { auto_brackets = { enabled = false } }, -- let transform handle it
-				list = {
-					selection = { preselect = true, auto_insert = false },
+				list = { selection = { preselect = false } },
+				menu = {
+					auto_show = function()
+						return vim.fn.getcmdtype() == ":"
+					end,
 				},
-			},
-			sources = {
-				transform_items = function(_, items)
-					for _, item in ipairs(items) do
-						local label = item.label or ""
-						if callable[item.kind] and not label:find("(", 1, true) then
-							item.insertTextFormat = 2 -- snippet
-							item.insertText = label .. "($1)"
-						end
-					end
-					return items
-				end,
+				ghost_text = { enabled = true },
 			},
 		},
 	},
