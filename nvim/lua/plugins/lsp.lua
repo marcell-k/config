@@ -2,8 +2,11 @@ return {
 	{ "mason-org/mason.nvim", opts = {} },
 	{
 		"mason-org/mason-lspconfig.nvim",
-		dependencies = { "neovim/nvim-lspconfig" },
-		opts = { ensure_installed = { "pyrefly", "ruff", "gopls", "taplo", "lua_ls" } },
+		dependencies = { "mason-org/mason.nvim", "neovim/nvim-lspconfig" },
+		opts = {
+			ensure_installed = { "pyrefly", "ruff", "gopls", "taplo", "lua_ls" },
+			automatic_enable = false,
+		},
 	},
 	{
 		"neovim/nvim-lspconfig",

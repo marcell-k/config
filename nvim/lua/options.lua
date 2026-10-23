@@ -5,8 +5,6 @@ vim.opt.relativenumber = true
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = false
-vim.opt.autoindent = true
-vim.opt.smartindent = true
 vim.opt.wrap = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
@@ -19,9 +17,6 @@ vim.opt.textwidth = 100
 vim.opt.colorcolumn = ""
 
 vim.opt.hlsearch = false
-vim.opt.incsearch = true
-
-vim.opt.termguicolors = true
 
 -- vim.opt.formatoptions:append("cq")
 vim.opt.isfname:append("@-@")

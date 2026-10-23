@@ -33,8 +33,8 @@ map({ "n", "v", "o" }, "<leader>j", "`", { desc = "Jump to mark (exact line & co
 -- map("n", "n", "nzzzv")
 -- map("n", "N", "Nzzzv")
 
---- Remap '4' to go to the end of the line (replacing '$') ---
-map({ "n", "v", "o" }, "4", "$", { desc = "Go to end of line / operator motion" })
+--- Remap 'É' to go to the end of the line (replacing '$') ---
+map({ "n", "v", "o" }, "É", "$", { desc = "Go to end of line / operator motion" })
 
 --- Show diagnostic float ---
 map("n", "<leader>cd", vim.diagnostic.open_float, { desc = "Show Diagnostic" })

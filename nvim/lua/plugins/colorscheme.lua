@@ -26,9 +26,9 @@ return {
 
 			overrides = function(colors)
 				local theme = colors.theme
+				local c = require("kanagawa.lib.color")
 
 				local makeDiagnosticColor = function(color)
-					local c = require("kanagawa.lib.color")
 					return {
 						fg = color,
 						bg = c(color):blend(theme.ui.bg, 0.95):to_hex(),
@@ -53,7 +53,7 @@ return {
 						fg = theme.ui.fg_dim,
 					},
 					CursorLine = {
-						bg = require("kanagawa.lib.color")(theme.ui.bg_p2):blend(theme.ui.bg, 0.5):to_hex(),
+						bg = c(theme.ui.bg_p2):blend(theme.ui.bg, 0.5):to_hex(),
 					},
 
 					-- Completion popup
@@ -76,7 +76,7 @@ return {
 
 					-- Rust unsafe keyword
 					["@lsp.typemod.keyword.unsafe.rust"] = {
-						fg = "#e46876",
+						fg = require("palette").error,
 						bold = true,
 						italic = false,
 					},

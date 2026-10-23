@@ -11,8 +11,6 @@ return {
 			vim.g.rustaceanvim = {
 				server = {
 					on_attach = function(_, bufnr)
-						vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
-
 						local function map(key, cmd, desc)
 							vim.keymap.set("n", key, function()
 								vim.cmd.RustLsp(cmd)
