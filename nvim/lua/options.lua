@@ -29,8 +29,7 @@ vim.opt.isfname:append("@-@")
 vim.opt.scrolloff = 12
 vim.opt.sidescrolloff = 12
 vim.opt.signcolumn = "yes"
-
-vim.opt.updatetime = 200
+vim.opt.updatetime = 250
 
 vim.opt.clipboard = "unnamedplus"
 
