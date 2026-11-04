@@ -7,6 +7,11 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "icon_theme": {
+    "mode": "dark",
+    "light": "Zed (Default)",
+    "dark": "Zed (Default)"
+  },
   "inlay_hints": {
     "show_background": false,
     "enabled": true,
@@ -17,11 +22,6 @@
   "disable_ai": false,
   "title_bar": {
     "show_user_picture": false,
-    "show_sign_in": true,
-    "show_onboarding_banner": true,
-    "show_project_items": true,
-    "show_worktree_name": true,
-    "show_branch_status_icon": false,
   },
   "diagnostics": {
     "inline": {
@@ -37,7 +37,6 @@
   "which_key": {
     "enabled": true,
   },
-  "buffer_line_height": "comfortable",
   // "buffer_font_family": "JetBrainsMono Nerd Font",
   "git": {
     "inline_blame": {
@@ -86,7 +85,10 @@
     "trust_all_worktrees": true,
   },
   "vim_mode": true,
-  "ui_font_size": 16,
   "buffer_font_size": 13.0,
-  "theme": "Kanagawa Dragon - No Italics",
+  "theme": {
+    "mode": "dark",
+    "light": "Kanagawa Dragon",
+    "dark": "Kanagawa Dragon"
+  },
 }
