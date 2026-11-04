@@ -1,0 +1,92 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "inlay_hints": {
+    "show_background": false,
+    "enabled": true,
+  },
+  "format_on_save": "modifications_if_available",
+  "preferred_line_length": 100,
+  "proxy": "",
+  "disable_ai": false,
+  "title_bar": {
+    "show_user_picture": false,
+    "show_sign_in": true,
+    "show_onboarding_banner": true,
+    "show_project_items": true,
+    "show_worktree_name": true,
+    "show_branch_status_icon": false,
+  },
+  "diagnostics": {
+    "inline": {
+      "enabled": true,
+    },
+    "button": true,
+  },
+  "status_bar": {
+    "show_active_file": false,
+    "line_endings_button": false,
+    "active_language_button": false,
+  },
+  "which_key": {
+    "enabled": true,
+  },
+  "buffer_line_height": "comfortable",
+  // "buffer_font_family": "JetBrainsMono Nerd Font",
+  "git": {
+    "inline_blame": {
+      "enabled": false,
+    },
+    "diff_base": "head",
+  },
+  "languages": {
+    "Python": {
+      "language_servers": ["ty", "ruff", "!basedpyright"],
+      "code_actions_on_format": {
+        "source.organizeImports.ruff": true,
+        // "source.fixAll.ruff": true,
+      },
+      "formatter": {
+        "language_server": {
+          "name": "ruff",
+        },
+      },
+    },
+  },
+  "relative_line_numbers": "enabled",
+  "project_panel": {
+    "dock": "left",
+  },
+  "outline_panel": {
+    "dock": "left",
+  },
+  "collaboration_panel": {
+    "dock": "left",
+  },
+  "agent": {
+    "dock": "right",
+    "favorite_models": [],
+    "model_parameters": [],
+  },
+  "git_panel": {
+    "dock": "left",
+  },
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false,
+    "anthropic_retention": false,
+  },
+  "session": {
+    "trust_all_worktrees": true,
+  },
+  "vim_mode": true,
+  "ui_font_size": 16,
+  "buffer_font_size": 13.0,
+  "theme": "Kanagawa Dragon - No Italics",
+}

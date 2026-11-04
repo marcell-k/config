@@ -10,3 +10,6 @@ Karabiner/automatic_backups/
 
 # --- Zellij ---
 *.kdl.bak
+
+# -- Zed --
+prompts/

@@ -1,0 +1,17 @@
+{
+  "Docstring": {
+    "prefix": "doc",
+    "body": ["\"\"\"$1.\"\"\"$0"],
+    "description": "One-line docstring"
+  },
+  "Multiline docstring": {
+    "prefix": "mdoc",
+    "body": [
+      "\"\"\"$1.",
+      "",
+      "$0",
+      "\"\"\""
+    ],
+    "description": "Multi-line docstring"
+  }
+}
