@@ -113,6 +113,14 @@ run = ['layout floating']
 if.app-id = 'com.apple.Siri'
 run = 'layout floating'
 
+[[on-window-detected]]
+if.app-id = 'com.pais.handy'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'dev.zed.Zed'
+run = ['layout tiling', 'move-node-to-workspace 2']
+
 # Ghostty always opens tiled on workspace 2 (your primary terminal desktop)
 # NOTE: no 'fullscreen' action here on purpose — a single tiled window in an
 # otherwise-empty workspace already fills the screen. Native 'fullscreen'
