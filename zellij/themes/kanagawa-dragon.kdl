@@ -4,7 +4,7 @@ themes {
         bg "#181616"
         black "#0d0c0c"
         red "#c4746e"
-        green "#181616"
+        green "#8a9a7b"
         yellow "#c4b28a"
         blue "#8ba4b0"
         magenta "#a292a3"
@@ -13,5 +13,3 @@ themes {
         orange "#b6927b"
     }
 }
-
-theme "kanagawa-dragon"
