@@ -5,7 +5,10 @@
 #   workspace 1 -> browser (single window)
 #   workspace 2 -> Ghostty (single window)
 #   workspace 3 -> flexible (browser / Finder / anything else)
-
+#   workspace 4 -> reading (books, obsidian)
+#   workspace 5 -> zed
+#   workspace 6 ->
+#
 # Config schema version. See: https://nikitabobko.github.io/AeroSpace/guide#config-version
 config-version = 2
 
@@ -18,12 +21,12 @@ enable-normalization-opposite-orientation-for-nested-containers = true
 
 # Gaps between windows/monitor edges (in pixels) — tweak to taste
 [gaps]
-inner.horizontal = 5
-inner.vertical = 5
-outer.left = 5
-outer.bottom = 5
-outer.top = 5
-outer.right = 5
+inner.horizontal = 6
+inner.vertical = 6
+outer.left = 6
+outer.bottom = 6
+outer.top = 6
+outer.right = 6
 
 # Default layout when a new window opens
 [mode.main.binding]
@@ -57,87 +60,42 @@ shift-alt-1 = 'workspace 1'
 shift-alt-2 = 'workspace 2'
 shift-alt-4 = 'workspace 3'
 shift-alt-5 = 'workspace 4'
+shift-alt-6 = 'workspace 5'
+shift-alt-7 = 'workspace 6'
 
 # --- Move window to workspace ---
 alt-shift-cmd-1 = 'move-node-to-workspace 1'
 alt-shift-cmd-2 = 'move-node-to-workspace 2'
 alt-shift-cmd-4 = 'move-node-to-workspace 3'
 alt-shift-cmd-5 = 'move-node-to-workspace 4'
+alt-shift-cmd-6 = 'move-node-to-workspace 5'
+alt-shift-cmd-7 = 'move-node-to-workspace 6'
 
 # --- Reload config ---
 alt-shift-r = 'reload-config'
 
 # --- Per-app rules ---
-# Finder floats by default (file dialogs tile awkwardly otherwise)
-[[on-window-detected]]
-if.app-id = 'com.apple.finder'
-run = 'layout floating'
+# First matching rule wins. Exceptions (tiled apps) go first;
+# the catch-all at the bottom floats everything else.
 
-[[on-window-detected]]
-if.app-id = 'com.apple.MobileSMS' # Messages
-run = 'layout floating'
+# --- Tiled apps ---
 
-[[on-window-detected]]
-if.app-id = 'com.apple.Music'
-run = 'layout floating'
-
-[[on-window-detected]]
-if.app-id = 'com.apple.mail'
-run = 'layout floating'
-
-[[on-window-detected]]
-if.app-id = 'net.whatsapp.WhatsApp'
-run = 'layout floating'
-
-[[on-window-detected]]
-if.app-id = 'com.apple.Notes'
-run = 'layout floating'
-
-[[on-window-detected]]
-if.app-id = 'com.apple.reminders'
-run = 'layout floating'
-
-[[on-window-detected]]
-if.app-id = 'com.apple.iCal'
-run = 'layout floating'
-
-[[on-window-detected]]
-if.app-id = 'com.apple.Terminal'
-run = 'layout floating'
-
-[[on-window-detected]]
-if.app-id = 'com.microsoft.VSCode'
-run = ['layout floating']
-
-[[on-window-detected]]
-if.app-id = 'com.apple.Siri'
-run = 'layout floating'
-
-[[on-window-detected]]
-if.app-id = 'com.pais.handy'
-run = 'layout floating'
-
-[[on-window-detected]]
-if.app-id = 'dev.zed.Zed'
-run = ['layout tiling', 'move-node-to-workspace 2']
-
-# Ghostty always opens tiled on workspace 2 (your primary terminal desktop)
-# NOTE: no 'fullscreen' action here on purpose — a single tiled window in an
-# otherwise-empty workspace already fills the screen. Native 'fullscreen'
-# hides the menu bar and moves to its own Space, which isn't what we want.
-[[on-window-detected]]
-if.app-id = 'com.mitchellh.ghostty'
-run = ['layout tiling', 'move-node-to-workspace 2']
-
-# Safari -> workspace 1 (your primary browser desktop)
+# Safari -> workspace 1
 [[on-window-detected]]
 if.app-id = 'com.apple.Safari'
 run = ['layout tiling', 'move-node-to-workspace 1']
 
+# Ghostty -> workspace 2
+[[on-window-detected]]
+if.app-id = 'com.mitchellh.ghostty'
+run = ['layout tiling', 'move-node-to-workspace 2']
+
+# Firefox -> workspace 3
 [[on-window-detected]]
 if.app-id = 'org.mozilla.firefox'
 run = ['layout tiling', 'move-node-to-workspace 3']
 
+# iBooks + Obsidian -> workspace 4
 [[on-window-detected]]
 if.app-id = 'md.obsidian'
 run = ['layout floating', 'move-node-to-workspace 4']
@@ -146,5 +104,12 @@ run = ['layout floating', 'move-node-to-workspace 4']
 if.app-id = 'com.apple.iBooksX'
 run = ['layout floating', 'move-node-to-workspace 4']
 
-# Workspace 3 is intentionally left unassigned/flexible — nothing auto-routes
-# there; move things over manually with alt-shift-3 as needed.
+# Zed -> workspace 5
+[[on-window-detected]]
+if.app-id = 'dev.zed.Zed'
+run = ['layout tiling', 'move-node-to-workspace 5']
+
+# --- Catch-all: everything else floats (must stay LAST) ---
+[[on-window-detected]]
+if = 'true'
+run = 'layout floating'
