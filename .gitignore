@@ -13,3 +13,6 @@ Karabiner/automatic_backups/
 
 # -- Zed --
 prompts/
+
+# --Opencode --
+opencode/service.json
