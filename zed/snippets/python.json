@@ -5,13 +5,100 @@
     "description": "One-line docstring"
   },
   "Multiline docstring": {
-    "prefix": "mdoc",
+    "prefix": "docm",
     "body": [
-      "\"\"\"$1.",
+      "\"\"\"${1:Summary}.",
       "",
-      "$0",
-      "\"\"\""
+      "Args:",
+      "    ${2:arg}: ${3:Description}.",
+      "",
+      "Raises:",
+      "    ${4:ValueError}: ${5:When it happens}.",
+      "\"\"\"$0"
     ],
-    "description": "Multi-line docstring"
+    "description": "Google-style multi-line docstring"
+  },
+  "Function": {
+    "prefix": "def",
+    "body": [
+      "def ${1:name}(${2:args}) -> ${3:None}:",
+      "    ${0:pass}"
+    ],
+    "description": "Function"
+  },
+  "Main check": {
+    "prefix": "ifm",
+    "body": [
+      "if __name__ == \"__main__\":",
+      "    main()",
+      ""
+    ],
+    "description": "Python __main__ entrypoint"
+  },
+  "Dataclass": {
+    "prefix": ["dc", "dataclass"],
+    "body": [
+      "@dataclass(slots=True)",
+      "class ${1:Name}:",
+      "    ${2:field}: ${3:str}$0"
+    ],
+    "description": "Dataclass (remember: from dataclasses import dataclass)"
+  },
+  "Frozen dataclass": {
+    "prefix": "dcf",
+    "body": [
+      "@dataclass(frozen=True, slots=True)",
+      "class ${1:Name}:",
+      "    ${2:field}: ${3:str}$0"
+    ],
+    "description": "Frozen dataclass"
+  },
+  "Property with setter": {
+    "prefix": ["prop", "propset"],
+    "body": [
+      "@property",
+      "def ${1:name}(self) -> ${2:str}:",
+      "    return self._$1",
+      "",
+      "@$1.setter",
+      "def $1(self, value: $2) -> None:",
+      "    self._$1 = value$0"
+    ],
+    "description": "Property with setter"
+  },
+  "Dunder repr": {
+    "prefix": "repr",
+    "body": [
+      "def __repr__(self) -> str:",
+      "    return f\"{type(self).__name__}(${1:field}={self.${1:field}!r})\"$0"
+    ],
+    "description": "__repr__"
+  },
+  "Try/except": {
+    "prefix": "try",
+    "body": [
+      "try:",
+      "    ${1:pass}",
+      "except ${2:Exception} as e:",
+      "    ${0:raise}"
+    ],
+    "description": "try/except"
+  },
+  "Pytest function": {
+    "prefix": "pt",
+    "body": [
+      "def test_${1:func}():",
+      "    $0"
+    ],
+    "description": "Pytest function"
+  },
+  "Class": {
+    "prefix": "cls",
+    "body": [
+      "class ${1:ClassName}:",
+      "    def __init__(self, ${2:args}) -> None:",
+      "        ${0:pass}"
+    ],
+    "description": "Class with __init__"
   }
 }

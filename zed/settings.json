@@ -7,20 +7,39 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "suggest_extensions": false,
+  "vim": {
+    "toggle_relative_line_numbers": true,
+    "use_smartcase_find": true,
+    "gdefault": true
+  },
+  "fullscreen_mode": "native",
+  "use_system_window_tabs": false,
+  "tab_bar": {
+    "show": true
+  },
+  "toolbar": {
+    "code_actions": false,
+    "selections_menu": true,
+    "quick_actions": false,
+    "breadcrumbs": false
+  },
   "icon_theme": {
     "mode": "dark",
     "light": "Zed (Default)",
     "dark": "Zed (Default)"
   },
   "inlay_hints": {
+    "show_other_hints": false,
     "show_background": false,
     "enabled": true,
   },
   "format_on_save": "modifications_if_available",
   "preferred_line_length": 100,
   "proxy": "",
-  "disable_ai": false,
+  "disable_ai": true,
   "title_bar": {
+    "show_menus": false,
     "show_user_picture": false,
   },
   "diagnostics": {
@@ -60,6 +79,7 @@
   },
   "relative_line_numbers": "enabled",
   "project_panel": {
+    "button": true,
     "dock": "left",
   },
   "outline_panel": {
