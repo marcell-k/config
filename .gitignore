@@ -14,5 +14,8 @@ Karabiner/automatic_backups/
 # -- Zed --
 prompts/
 
-# --Opencode --
+# -- Opencode --
 opencode/service.json
+
+# -- Fish --
+fish/completions/
