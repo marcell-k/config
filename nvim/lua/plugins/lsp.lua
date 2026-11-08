@@ -1,10 +1,11 @@
+local servers = { "pyrefly", "ruff", "gopls", "taplo", "lua_ls" }
 return {
 	{ "mason-org/mason.nvim", opts = {} },
 	{
 		"mason-org/mason-lspconfig.nvim",
 		dependencies = { "mason-org/mason.nvim", "neovim/nvim-lspconfig" },
 		opts = {
-			ensure_installed = { "pyrefly", "ruff", "gopls", "taplo", "lua_ls" },
+			ensure_installed = servers,
 			automatic_enable = false,
 		},
 	},
@@ -33,7 +34,7 @@ return {
 					},
 				},
 			})
-			vim.lsp.enable({ "pyrefly", "ruff", "gopls", "taplo", "lua_ls" })
+			vim.lsp.enable(servers)
 		end,
 	},
 }
