@@ -2,6 +2,8 @@
 .lazy.nvtags
 colors/
 nexus_cli/
+*.bak.*
+*.pak
 
 # --- Karabiner ---
 Karabiner/automatic_backups/
