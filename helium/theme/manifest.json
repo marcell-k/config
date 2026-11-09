@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "Kanagawa Dragon",
+  "version": "1.0",
+  "description": "Kanagawa Dragon theme for Helium",
+  "theme": {
+    "colors": {
+      "frame": [18, 18, 15],
+      "frame_inactive": [24, 22, 22],
+      "toolbar": [29, 28, 25],
+      "tab_text": [196, 116, 110],
+      "tab_background_text": [122, 131, 130],
+      "toolbar_text": [196, 116, 110],
+      "toolbar_button_icon": [139, 164, 176],
+      "bookmark_text": [196, 116, 110],
+      "ntp_background": [18, 18, 15],
+      "ntp_text": [196, 116, 110],
+      "button_background": [45, 79, 103]
+    }
+  }
+}

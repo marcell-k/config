@@ -58,18 +58,18 @@ alt-f = 'fullscreen'
 # --- Workspaces (1-9, matches zellij tab numbers) ---
 shift-alt-1 = 'workspace 1'
 shift-alt-2 = 'workspace 2'
-shift-alt-4 = 'workspace 3'
-shift-alt-5 = 'workspace 4'
-shift-alt-6 = 'workspace 5'
-shift-alt-7 = 'workspace 6'
+shift-alt-3 = 'workspace 3'
+shift-alt-4 = 'workspace 4'
+shift-alt-5 = 'workspace 5'
+shift-alt-6 = 'workspace 6'
 
 # --- Move window to workspace ---
 alt-shift-cmd-1 = 'move-node-to-workspace 1'
 alt-shift-cmd-2 = 'move-node-to-workspace 2'
-alt-shift-cmd-4 = 'move-node-to-workspace 3'
-alt-shift-cmd-5 = 'move-node-to-workspace 4'
-alt-shift-cmd-6 = 'move-node-to-workspace 5'
-alt-shift-cmd-7 = 'move-node-to-workspace 6'
+alt-shift-cmd-3 = 'move-node-to-workspace 3'
+alt-shift-cmd-4 = 'move-node-to-workspace 4'
+alt-shift-cmd-5 = 'move-node-to-workspace 5'
+alt-shift-cmd-6 = 'move-node-to-workspace 6'
 
 # --- Reload config ---
 alt-shift-r = 'reload-config'
@@ -80,9 +80,9 @@ alt-shift-r = 'reload-config'
 
 # --- Tiled apps ---
 
-# Safari -> workspace 1
+# Helium -> workspace 1
 [[on-window-detected]]
-if.app-id = 'com.apple.Safari'
+if.app-id = 'net.imput.helium'
 run = ['layout tiling', 'move-node-to-workspace 1']
 
 # Ghostty -> workspace 2
@@ -90,9 +90,9 @@ run = ['layout tiling', 'move-node-to-workspace 1']
 if.app-id = 'com.mitchellh.ghostty'
 run = ['layout tiling', 'move-node-to-workspace 2']
 
-# Firefox -> workspace 3
+# Zed -> workspace 5
 [[on-window-detected]]
-if.app-id = 'org.mozilla.firefox'
+if.app-id = 'dev.zed.Zed'
 run = ['layout tiling', 'move-node-to-workspace 3']
 
 # iBooks + Obsidian -> workspace 4
@@ -104,9 +104,9 @@ run = ['layout floating', 'move-node-to-workspace 4']
 if.app-id = 'com.apple.iBooksX'
 run = ['layout floating', 'move-node-to-workspace 4']
 
-# Zed -> workspace 5
+# Firefox -> workspace 5
 [[on-window-detected]]
-if.app-id = 'dev.zed.Zed'
+if.app-id = 'org.mozilla.firefox'
 run = ['layout tiling', 'move-node-to-workspace 5']
 
 # --- Catch-all: everything else floats (must stay LAST) ---
