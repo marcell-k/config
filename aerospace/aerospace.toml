@@ -80,9 +80,9 @@ alt-shift-r = 'reload-config'
 
 # --- Tiled apps ---
 
-# Safari -> workspace 1
+# Helium -> workspace 1
 [[on-window-detected]]
-if.app-id = 'com.apple.Safari'
+if.app-id = 'net.imput.helium'
 run = ['layout tiling', 'move-node-to-workspace 1']
 
 # Ghostty -> workspace 2
@@ -90,9 +90,9 @@ run = ['layout tiling', 'move-node-to-workspace 1']
 if.app-id = 'com.mitchellh.ghostty'
 run = ['layout tiling', 'move-node-to-workspace 2']
 
-# Firefox -> workspace 3
+# Zed -> workspace 5
 [[on-window-detected]]
-if.app-id = 'org.mozilla.firefox'
+if.app-id = 'dev.zed.Zed'
 run = ['layout tiling', 'move-node-to-workspace 3']
 
 # iBooks + Obsidian -> workspace 4
@@ -104,9 +104,9 @@ run = ['layout floating', 'move-node-to-workspace 4']
 if.app-id = 'com.apple.iBooksX'
 run = ['layout floating', 'move-node-to-workspace 4']
 
-# Zed -> workspace 5
+# Firefox -> workspace 5
 [[on-window-detected]]
-if.app-id = 'dev.zed.Zed'
+if.app-id = 'org.mozilla.firefox'
 run = ['layout tiling', 'move-node-to-workspace 5']
 
 # --- Catch-all: everything else floats (must stay LAST) ---
