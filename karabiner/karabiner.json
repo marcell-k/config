@@ -8,6 +8,39 @@
             "complex_modifications": {
                 "rules": [
                     {
+                        "description": "Swap y and z on ABC layout",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "input_sources": [{ "input_source_id": "^com\\.apple\\.keylayout\\.ABC$" }],
+                                        "type": "input_source_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "y",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [{ "key_code": "z" }],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "input_sources": [{ "input_source_id": "^com\\.apple\\.keylayout\\.ABC$" }],
+                                        "type": "input_source_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "z",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [{ "key_code": "y" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "Caps Lock: Control if Held, Escape if Tapped (Fixed Fast Typing Overlap)",
                         "manipulators": [
                             {
@@ -86,23 +119,28 @@
                         ]
                     },
                     {
-                        "description": "<> and # via Command (either side, QWERTZ-corrected)",
+                        "description": "<> via Command, # via Ctrl+ő (QWERTZ-corrected)",
                         "manipulators": [
                             {
-                                "type": "basic",
+                                "conditions": [
+                                    {
+                                        "input_sources": [{ "language": "hu" }],
+                                        "type": "input_source_if"
+                                    }
+                                ],
                                 "from": {
-                                    "key_code": "3",
-                                    "modifiers": { "mandatory": ["command"] }
+                                    "key_code": "open_bracket",
+                                    "modifiers": { "mandatory": ["control"] }
                                 },
                                 "to": [
                                     {
                                         "key_code": "3",
                                         "modifiers": ["left_option", "left_shift"]
                                     }
-                                ]
+                                ],
+                                "type": "basic"
                             },
                             {
-                                "type": "basic",
                                 "from": {
                                     "key_code": "z",
                                     "modifiers": { "mandatory": ["command"] }
@@ -112,10 +150,10 @@
                                         "key_code": "z",
                                         "modifiers": ["left_option", "left_shift"]
                                     }
-                                ]
+                                ],
+                                "type": "basic"
                             },
                             {
-                                "type": "basic",
                                 "from": {
                                     "key_code": "x",
                                     "modifiers": { "mandatory": ["command"] }
@@ -125,7 +163,8 @@
                                         "key_code": "x",
                                         "modifiers": ["left_option", "left_shift"]
                                     }
-                                ]
+                                ],
+                                "type": "basic"
                             }
                         ]
                     }
