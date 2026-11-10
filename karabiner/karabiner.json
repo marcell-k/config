@@ -86,13 +86,19 @@
                         ]
                     },
                     {
-                        "description": "<> and # via Command (either side, QWERTZ-corrected)",
+                        "description": "<> via Command, # via Ctrl+ő (QWERTZ-corrected)",
                         "manipulators": [
                             {
                                 "type": "basic",
+                                "conditions": [
+                                    {
+                                        "type": "input_source_if",
+                                        "input_sources": [{ "language": "hu" }]
+                                    }
+                                ],
                                 "from": {
-                                    "key_code": "3",
-                                    "modifiers": { "mandatory": ["command"] }
+                                    "key_code": "open_bracket",
+                                    "modifiers": { "mandatory": ["control"] }
                                 },
                                 "to": [
                                     {
