@@ -5,7 +5,20 @@ return {
 		lazy = false,
 		opts = {
 			words = { enabled = true, modes = { "n", "c" } },
-			picker = { enabled = true },
+			picker = {
+				enabled = true,
+				sources = {
+					files = {
+						win = {
+							input = {
+								keys = {
+									["<C-o>"] = { "toggle_hidden", mode = { "i", "n" } },
+								},
+							},
+						},
+					},
+				},
+			},
 			lazygit = { enabled = true },
 			bigfile = { enabled = true },
 		},
