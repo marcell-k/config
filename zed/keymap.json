@@ -7,12 +7,6 @@
 // from the command palette.
 [
   {
-    "context": "VimControl && !menu",
-    "bindings": {
-      "é": "vim::EndOfLine",
-    },
-  },
-  {
     "context": "Editor && vim_mode == normal && !VimWaiting && !menu",
     "bindings": {
       // grep (<leader>sg)
@@ -40,6 +34,13 @@
       "alt-k": "editor::MoveLineUp",
       "alt-h": ["workspace::SendKeystrokes", "< g v"],
       "alt-l": ["workspace::SendKeystrokes", "> g v"],
+    },
+  },
+  {
+    "context": "vim_mode == normal || vim_mode == visual || vim_mode == operator",
+    "bindings": {
+      "f": ["vim::PushFindForward", { "before": false, "multiline": true }],
+      "t": ["vim::PushFindForward", { "before": true, "multiline": true }],
     },
   },
   {

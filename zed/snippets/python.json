@@ -18,30 +18,28 @@
     ],
     "description": "Google-style multi-line docstring"
   },
+  "Import module": {
+    "prefix": "imp",
+    "body": ["import ${1:module} as ${2:item}\n$0"],
+    "description": "Import"
+  },
+  "Import module from": {
+    "prefix": "frim",
+    "body": ["from ${1:module} import ${2:item}"]
+  },
   "Function": {
-    "prefix": "def",
-    "body": [
-      "def ${1:name}(${2:args}) -> ${3:None}:",
-      "    ${0:pass}"
-    ],
+    "prefix": "df",
+    "body": ["def ${1:name}(${2:args}) -> ${3:None}:", "    ${0:pass}"],
     "description": "Function"
   },
   "Main check": {
     "prefix": "ifm",
-    "body": [
-      "if __name__ == \"__main__\":",
-      "    main()",
-      ""
-    ],
+    "body": ["if __name__ == \"__main__\":", "    main()", ""],
     "description": "Python __main__ entrypoint"
   },
   "Dataclass": {
-    "prefix": ["dc", "dataclass"],
-    "body": [
-      "@dataclass(slots=True)",
-      "class ${1:Name}:",
-      "    ${2:field}: ${3:str}$0"
-    ],
+    "prefix": "dc",
+    "body": ["@dataclass(slots=True)", "class ${1:Name}:", "    ${2:field}: ${3:str}$0"],
     "description": "Dataclass (remember: from dataclasses import dataclass)"
   },
   "Frozen dataclass": {
@@ -76,20 +74,12 @@
   },
   "Try/except": {
     "prefix": "try",
-    "body": [
-      "try:",
-      "    ${1:pass}",
-      "except ${2:Exception} as e:",
-      "    ${0:raise}"
-    ],
+    "body": ["try:", "    ${1:pass}", "except ${2:Exception} as e:", "    ${0:raise}"],
     "description": "try/except"
   },
   "Pytest function": {
     "prefix": "pt",
-    "body": [
-      "def test_${1:func}():",
-      "    $0"
-    ],
+    "body": ["def test_${1:func}():", "    $0"],
     "description": "Pytest function"
   },
   "Class": {
