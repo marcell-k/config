@@ -3,4 +3,8 @@
   "theme": {
     "name": "kanagawa-dragon",
   },
+  "session": {
+    "sidebar": "hide",
+    "verbosity": "low"
+  },
 }
