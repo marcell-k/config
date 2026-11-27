@@ -34,6 +34,19 @@ return {
 					},
 				},
 			})
+			vim.lsp.config("lua_ls", {
+				settings = {
+					Lua = {
+						runtime = { version = "LuaJIT" },
+						diagnostics = { globals = { "vim", "rex" } },
+						workspace = {
+							checkThirdParty = false,
+							library = { vim.env.VIMRUNTIME },
+						},
+						telemetry = { enable = false },
+					},
+				},
+			})
 			vim.lsp.enable(servers)
 		end,
 	},
