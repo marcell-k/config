@@ -83,11 +83,11 @@ alt-shift-r = 'reload-config'
 # Helium -> workspace 1
 [[on-window-detected]]
 if.app-id = 'net.imput.helium'
-run = ['layout tiling', 'move-node-to-workspace 1']
+run = ['layout tiling']        # 'move-node-to-workspace 1'
 
 # Ghostty -> workspace 2
 [[on-window-detected]]
-if.app-id = 'com.mitchellh.ghostty'
+if.app-id = 'com.superlogical.rex'
 run = ['layout tiling', 'move-node-to-workspace 2']
 
 # Zed -> workspace 5
